@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "noUnusedLocals": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "strictFunctionTypes": false,
+    "sourceMap": false,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitThis": false,
+    "baseUrl": "./",
+    // "types": ["webpack-env", "node", "unplugin-vue2-script-setup/types"],
+    "paths": {
+      "@/*": ["src/*"],
+      "_c": ["src/components/index"],
+      "_c/*": ["src/components/*"],
+      "_v/*": ["src/views/*"],
+      "_u": ["src/utils/index"],
+      "_u/*": ["src/utils/*"],
+      "_h/*": ["src/hooks/*"],
+      "_l/": ["src/layout/index"],
+      "_l/*": ["src/layout/*"]
+    },
+    "lib": ["esnext", "dom"]
+  },
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "components.d.ts"
+  ]
+}

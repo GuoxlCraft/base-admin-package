@@ -1,0 +1,276 @@
+.app__wrap--Classic,
+.app__wrap--LeftTop {
+  .horizontal-collapse-transition {
+    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out !important;
+  }
+
+  .sidebar-container {
+    background: @menuBg;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+
+    .el-menu {
+      background-color: @menuBg !important;
+
+      .el-menu-item,
+      .el-submenu__title {
+        color: @menuText !important;
+        background-color: @menuBg !important;
+
+        i {
+          color: @menuText !important;
+        }
+      }
+
+      .el-submenu {
+        .el-menu-item,
+        .el-submenu {
+          background-color: @subMenuBg !important;
+        }
+
+        .is-active {
+          color: @subMenuHover !important;
+          // background-color: @subMenuHover !important;
+
+          & > .el-submenu__title {
+            color: @subMenuParentHover !important;
+          }
+        }
+
+        .is-opened,
+        .el-menu {
+          background-color: @subMenuBg !important;
+
+          .el-submenu__title {
+            background-color: @subMenuBg !important;
+          }
+        }
+      }
+      // menu hover
+      .submenu-title-noDropdown,
+      .el-submenu__title {
+        &:hover {
+          color: @subMenuActiveText !important;
+          background-color: @menuBg !important;
+        }
+      }
+
+      .el-menu-item:hover {
+        color: @subMenuActiveText !important;
+        // background-color: @subMenuHover !important;
+      }
+
+      .is-active {
+        color: @subMenuHover !important;
+        // background-color: @menuActiveBg !important;
+
+        &:hover {
+          color: @subMenuHover !important;
+          // background-color: @subMenuHover !important;
+        }
+
+        & > .el-submenu__title {
+          color: @subMenuParentHover !important;
+        }
+      }
+
+      // .nest-menu {
+      //   background-color: @subMenuBg !important;
+      //   .el-submenu>.el-submenu__title {
+      //     background-color: @subMenuBg !important;
+      //   }
+      //   .is-active {
+      //     background-color: @subMenuHover !important;
+      //   }
+      // }
+    }
+
+    .el-menu--collapse {
+      & > div > .el-submenu {
+        i {
+          display: none;
+        }
+      }
+
+      .is-active {
+        & > .el-submenu__title {
+          background-color: @subMenuHover !important;
+        }
+      }
+    }
+  }
+}
+
+.nest-popper-menu {
+  margin-left: 10px;
+  background: @menuBg;
+
+  .el-menu--popup-right-start {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .el-menu {
+    background-color: @menuBg !important;
+
+    .el-menu-item,
+    .el-submenu__title {
+      color: @menuText !important;
+      background-color: @menuBg !important;
+
+      i {
+        color: @menuText !important;
+      }
+    }
+
+    .is-active {
+      color: @menuActiveText !important;
+      background-color: @subMenuHover !important;
+
+      & > .el-submenu__title {
+        color: @menuActiveText !important;
+      }
+    }
+
+    // .nest-menu {
+    //   .is-active {
+    //     background-color: @subMenuHover !important;
+    //   }
+    // }
+    // menu hover
+    .submenu-title-noDropdown,
+    .el-submenu__title {
+      &:hover {
+        color: @subMenuActiveText !important;
+        background-color: @menuBg !important;
+      }
+    }
+
+    .el-menu-item:hover {
+      color: @subMenuActiveText !important;
+      // background-color: @subMenuHover !important;
+    }
+  }
+}
+
+.app__wrap--Top {
+  .sidebar-container {
+    background: @topMenuBg;
+
+    .el-menu {
+      background-color: @topMenuBg !important;
+
+      .el-menu-item,
+      .el-submenu__title {
+        height: @topSiderHeight;
+        line-height: @topSiderHeight;
+        color: @topMenuText !important;
+        background-color: @topMenuBg !important;
+
+        i {
+          position: static;
+          margin-top: -3px;
+          margin-left: 8px;
+          color: @topMenuText !important;
+          vertical-align: middle;
+        }
+      }
+
+      .is-active {
+        color: @topMenuActiveText !important;
+        background: @topMenuActiveBg !important;
+
+        & > .el-submenu__title {
+          color: @topMenuActiveText !important;
+          background: @topMenuActiveBg !important;
+        }
+      }
+
+      .is-opened {
+        .el-menu-item {
+          background-color: @subMenuBg !important;
+        }
+      }
+
+      // .nest-menu {
+      //   background-color: @subMenuBg !important;
+      //   .el-submenu>.el-submenu__title {
+      //     background-color: @subMenuBg !important;
+      //   }
+      //   .is-active {
+      //     background-color: @subMenuHover !important;
+      //   }
+      // }
+      // menu hover
+      .submenu-title-noDropdown,
+      .el-submenu__title {
+        &:hover {
+          color: @topSMenuActiveText !important;
+          background: @topMenuActiveBg !important;
+        }
+      }
+
+      .el-menu-item:hover {
+        color: @topMenuActiveText !important;
+        background: @topMenuActiveBg !important;
+      }
+    }
+  }
+}
+
+.top-popper-menu {
+  margin-top: 10px;
+  margin-left: 10px;
+  background: @topMenuBg;
+
+  .el-menu {
+    background-color: @topMenuBg !important;
+
+    .el-menu-item,
+    .el-submenu__title {
+      color: @topMenuText !important;
+      background-color: @topMenuBg !important;
+
+      i {
+        color: @topMenuText !important;
+      }
+    }
+
+    .is-active {
+      color: @topMenuActiveText !important;
+      background-color: @topMenuActiveBg !important;
+
+      & > .el-submenu__title {
+        color: @topMenuActiveText !important;
+        background-color: @topMenuActiveBg !important;
+
+        &:hover {
+          background-color: @topMenuActiveBg !important;
+        }
+      }
+    }
+
+    // .nest-menu {
+    //   .is-active {
+    //     // background-color: @subMenuHover !important;
+    //   }
+    // }
+    // menu hover
+    .submenu-title-noDropdown,
+    .el-submenu__title {
+      &:hover {
+        color: @topSMenuHover !important;
+        background-color: @topMenuBg !important;
+      }
+    }
+
+    .el-menu-item:hover {
+      color: @topSMenuHover !important;
+      background-color: @topMenuActiveBg !important;
+    }
+
+    .anticon-item {
+      font-size: 16px;
+    }
+  }
+}

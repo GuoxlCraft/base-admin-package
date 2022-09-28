@@ -1,0 +1,47 @@
+<template>
+  <svg :class="svgClass" aria-hidden="true" v-on="$listeners">
+    <use :xlink:href="iconName" />
+  </svg>
+</template>
+
+<script lang="ts">
+export default {
+  name: 'SvgIcon'
+}
+</script>
+
+<script setup lang="ts">
+import defineVue from '@/main'
+const { computed } = defineVue() as any
+const props = defineProps({
+  // svg文件名
+  iconClass: {
+    type: String,
+    required: true
+  },
+  // 自定义类名
+  className: {
+    type: String,
+    default: ''
+  }
+})
+
+const iconName = computed(() => `#icon-${props.iconClass}`)
+const svgClass = computed(() => {
+  if (props.className) {
+    return `svg-icon ${props.className}`
+  } else {
+    return 'svg-icon'
+  }
+})
+</script>
+
+<style scoped>
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: -0.15em;
+  fill: currentColor;
+}
+</style>
