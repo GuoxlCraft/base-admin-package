@@ -123,14 +123,14 @@ watch(disabled, (val: boolean) => {
 })
 
 function renderCopyHtml() {
-  if (!root.$root.$refs.content || props.disabled) return
-  copyHtml.value = (root.$root.$refs.content as HTMLElement).innerHTML
+  if (!root.$refs.content || props.disabled) return
+  copyHtml.value = (root.$refs.content as HTMLElement).innerHTML
   updateView()
 }
 
 function updateView() {
-  if (!root.$root.$refs.content) return
-  const rect = (root.$root.$refs.content as HTMLElement).getBoundingClientRect()
+  if (!root.$refs.content) return
+  const rect = (root.$refs.content as HTMLElement).getBoundingClientRect()
   // 内容必须要撑开高度宽度
   contentHeight.value = rect.height
   contentWidth.value = rect.width
