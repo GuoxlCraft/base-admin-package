@@ -19,21 +19,17 @@ module.exports = {
           collapsable: false,
           children: [
             '/guide/',
-            '/guide/quick-start',
-            '/guide/configuration',
-            '/guide/router',
-            '/guide/mock'
           ]
         },
         {
-          title: '进阶',
+          title: '如何使用',
           collapsable: false,
-          children: ['/guide/standard', '/guide/style', '/guide/role']
+          children: ['/guide/import', '/guide/inject', '/guide/component', '/guide/hooks']
         },
         {
-          title: 'webpack5指南',
+          title: '如何扩展',
           collapsable: false,
-          children: ['/guide/webpack']
+          children: ['/guide/develop']
         }
       ],
       '/components/': [
