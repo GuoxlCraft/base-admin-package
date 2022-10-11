@@ -1,8 +1,6 @@
-import defineVue from '@/main'
 let messageInstance: any = null
-
+import { Message } from 'element-ui'
 const resetMessage = (options: any) => {
-  const { Message } = (defineVue() as IObj).elementUI
   if (messageInstance) {
     messageInstance.close()
   }

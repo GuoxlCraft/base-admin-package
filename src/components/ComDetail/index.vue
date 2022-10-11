@@ -28,8 +28,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import defineVue from '@/main'
-const { computed } = defineVue() as any
+
+import { computed } from 'vue'
 const props = defineProps({
   // 是否需要边框
   border: {

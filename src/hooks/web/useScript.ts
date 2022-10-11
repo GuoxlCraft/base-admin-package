@@ -1,11 +1,8 @@
-import defineVue from '@/main'
-
 interface ScriptOptions {
   src: string
 }
-
+import { onMounted, onUnmounted, ref } from 'vue'
 export function useScript(opts: ScriptOptions) {
-  const { onMounted, onUnmounted, ref } = defineVue() as any
   const isLoading = ref(false)
   const error = ref(false)
   const success = ref(false)

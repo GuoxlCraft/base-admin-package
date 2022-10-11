@@ -69,12 +69,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-import defineVue from '@/main'
 import { isFirefox } from '_u/validate'
 import { throttle } from 'lodash-es'
 import { on, off } from '_u/dom-uitls'
 import { ActionTypes } from './types'
-const { watch, ref, reactive, computed, nextTick, getCurrentInstance } = defineVue() as any
+import { watch, ref, reactive, computed, nextTick, getCurrentInstance } from 'vue'
 const root = (getCurrentInstance() as any).proxy
 
 const Mode = {
@@ -96,8 +95,8 @@ const list = ref([])
 const zIndex = ref(2000)
 const infinite = ref(true)
 const loading = ref(false)
-const onClose = ref(null)
-const onSelect = ref(null)
+const onClose = ref<any>(null)
+const onSelect = ref<any>(null)
 const mode = ref(Mode.CONTAIN)
 const transform = reactive({
   scale: 1,
@@ -106,9 +105,9 @@ const transform = reactive({
   offsetY: 0,
   enableTransition: false
 })
-const _keyDownHandler = ref(null)
-const _mouseWheelHandler = ref(null)
-const _dragHandler = ref(null)
+const _keyDownHandler = ref<any>(null)
+const _mouseWheelHandler = ref<any>(null)
+const _dragHandler = ref<any>(null)
 
 const isSingle = computed(() => list.value.length <= 1)
 const isFirst = computed(() => index.value === 0)

@@ -1,9 +1,8 @@
-import defineVue from '@/main'
+import { ref, nextTick, unref } from 'vue'
 export function useForm() {
-  const { ref, nextTick, unref } = defineVue() as any
   const formRef = ref(null)
   const formData = ref({})
-  const root = ref(null)
+  const root = ref<any>(null)
 
   /**
    * @param el 当前form实例

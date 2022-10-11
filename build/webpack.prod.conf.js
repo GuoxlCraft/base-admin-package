@@ -37,8 +37,8 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 // const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 // const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
 
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
- const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 const env = require('../config/' + process.argv[2] + '.env')
 const bundleAnalyzerReport = process.argv[3] === 'report'
@@ -67,37 +67,28 @@ const webpackConfig = merge(baseWebpackConfig, {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
-
+  externals: {
+    vue: {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    },
+    'element-ui':{
+      commonjs: 'element-ui',
+      commonjs2: 'element-ui',
+      amd: 'element-ui'
+    },
+    echarts:{
+      commonjs: 'echarts',
+      commonjs2: 'echarts',
+      amd: 'echarts'
+    }
+  },
   plugins: [
     // 环境变量
     new webpack.DefinePlugin({
       'process.env': env
     })
-
-    // new HtmlWebpackPlugin({
-    //   filename: config.build.index,
-    //   template: 'public/index.html',
-    //   minify: {
-    //     removeComments: true,
-    //     collapseWhitespace: true,
-    //     removeAttributeQuotes: true
-    //   },
-    //   chunksSortMode: 'auto'
-    // }),
-
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, '../public'),
-    //       to: config.build.assetsRoot,
-    //       globOptions: {
-    //         dot: true,
-    //         gitignore: true,
-    //         ignore: ['**/*.html']
-    //       }
-    //     }
-    //   ]
-    // })
   ]
 })
 
@@ -121,33 +112,12 @@ if (isProduction) {
       new CssMinimizerPlugin()
     ]
   }
-  // webpackConfig.plugins.push(
-  //   new MiniCssExtractPlugin({
-  //     filename: utils.assetsPath('css/[name].[contenthash].css')
-  //   })
-  // )
+  webpackConfig.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: utils.assetsPath('css/[name].css')
+    })
+  )
 
-  // webpackConfig.plugins.push(
-  //   new PreloadWebpackPlugin({
-  //     rel: 'prefetch',
-  //     include: 'asyncChunks' // or 'initial', or 'allAssets'
-  //   })
-  // )
-
-  // webpackConfig.plugins.push(
-  //   new PreloadWebpackPlugin({
-  //     rel: 'preload',
-  //     include: {
-  //       type: 'initial',
-  //       entries: ['app', 'chunk-elementUI']
-  //     }
-  //   })
-  // )
-  // webpackConfig.plugins.push(new ScriptExtHtmlWebpackPlugin({
-  //   //`runtime` must same as runtimeChunk name. default is `runtime`
-  //   inline: /runtime\..*\.js$/
-  // }))
-  // webpackConfig.plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
       algorithm: 'gzip',

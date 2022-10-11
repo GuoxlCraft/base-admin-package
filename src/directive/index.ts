@@ -9,3 +9,5 @@ const importDirective = (Vue: any) => {
 }
 
 export default importDirective
+
+export { directive }

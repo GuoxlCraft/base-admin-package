@@ -52,9 +52,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import defineVue from '@/main'
+
 import SvgIcon from '_c/SvgIcon/index.vue'
-const { watch, ref, nextTick, computed, getCurrentInstance } = defineVue() as any
+import { watch, ref, nextTick, computed, getCurrentInstance } from 'vue'
 const root = (getCurrentInstance() as any).proxy
 
 const props = defineProps({

@@ -11,9 +11,9 @@
 
 ## yalc
 
-yalc 可以在本地将 npm 包模拟发布，将发布后的资源存放在一个全局存储中。然后可以通过 yalc 将包添加进需要引用的项目中。
+[yalc](https://github.com/wclr/yalc) 可以在本地将 npm 包模拟发布，将发布后的资源存放在一个全局存储中。然后可以通过 [yalc](https://github.com/wclr/yalc) 将包添加进需要引用的项目中。
 
-这时候 package.json 的依赖表中会多出一个 file:.yalc/... 的依赖包，这就是 yalc 创建的特殊引用。同时也会在项目根目录创建一个 yalc.lock 确保引用资源的一致性。
+这时候 package.json 的依赖表中会多出一个 file:.yalc/... 的依赖包，这就是 [yalc](https://github.com/wclr/yalc) 创建的特殊引用。同时也会在项目根目录创建一个 yalc.lock 确保引用资源的一致性。
 
 首先您需要全局安装yalc
 
@@ -45,9 +45,13 @@ yalc add base-admin
   }
 ```
 
+:::tip 提示
+
 这里补充一下yalc在依赖库更新时的用法。
 
 当对本依赖库进行拓展开发时，需要变更依赖库中package.json的版本号。
+
+:::
 
 ```sh
   "name": "base-admin",
@@ -65,7 +69,7 @@ npm run build && yalc push
 
 ## yarn link/cnpm link
 
-这两种方式的发包流程大致相同，这里就以 yarn 举例。
+这两种方式的发包流程大致相同，都是对[npm link](https://docs.npmjs.com/cli/v8/commands/npm-link/)的优化升级，这里就以 yarn 举例。
 
 同样首先您需要全局安装yarn或者cnpm
 
@@ -86,8 +90,11 @@ yarn link base-admin
 这里会将本次构建的base-admin依赖库安装到项目中。
 在业务项目的node_modules中添加base-admin的依赖包。
 
+:::tip 提示
+
 当对本依赖库进行拓展开发时，同需要变更依赖库中package.json的版本号。
 
+:::
 然后在依赖库根目录下执行
 
 ```sh

@@ -1,39 +1,36 @@
-<template>
-  <span>{{ content }}</span>
-</template>
 <script lang="ts">
-export default {
-  name: 'TableColumn'
-}
-</script>
+import { defineComponent, inject, PropType, h } from 'vue'
 
-<script setup lang="ts">
-import defineVue from '@/main'
-const { inject, computed } = (defineVue() as any) || {}
-const props = defineProps({
-  row: {
-    type: Object,
-    default: () => null
+export default defineComponent({
+  name: 'TableSlot',
+  props: {
+    row: {
+      type: Object as PropType<IObj>,
+      default: () => null
+    },
+    index: {
+      type: Number as PropType<number>,
+      default: null
+    },
+    column: {
+      type: Object as PropType<IObj>,
+      default: () => null
+    },
+    slotName: {
+      type: String as PropType<string>,
+      default: ''
+    }
   },
-  index: {
-    type: Number,
-    default: null
-  },
-  column: {
-    type: Object,
-    default: () => null
-  },
-  slotName: {
-    type: String,
-    default: ''
+  render() {
+    const _this: any = inject('slots')
+    return h(
+      'span',
+      _this[this.slotName as any]({
+        row: this.row,
+        column: this.column,
+        $index: this.index
+      })
+    )
   }
-})
-const slots = inject('slots') as any
-const content = computed(() => {
-  slots[props.slotName as any]({
-    row: props.row,
-    column: props.column,
-    $index: props.index
-  })
 })
 </script>

@@ -32,8 +32,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import defineVue from '@/main'
-const { ref } = defineVue() as any
+import { ref } from 'vue'
 
 const props = defineProps({
   loading: {

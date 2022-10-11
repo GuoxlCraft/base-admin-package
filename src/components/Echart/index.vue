@@ -9,13 +9,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-import defineVue from '@/main'
 import type { EChartsOption } from 'echarts'
 import echarts from '@/plugins/echarts'
 import { debounce } from 'lodash-es'
 import 'echarts-wordcloud'
-const { onMounted, watch, computed, onBeforeUnmount, onActivated, getCurrentInstance } =
-  defineVue() as any
+import { onMounted, watch, computed, onBeforeUnmount, onActivated, getCurrentInstance } from 'vue'
 
 const root = getCurrentInstance()?.proxy as any
 

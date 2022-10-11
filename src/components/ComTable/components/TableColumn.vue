@@ -53,8 +53,8 @@ export default {
 <script setup lang="ts">
 import TableSlot from './Slot.vue'
 import { deepClone } from '_u/common'
-import defineVue from '@/main'
-const { inject } = defineVue() as any
+
+import { inject } from 'vue'
 
 const slots = inject('slots') as any
 

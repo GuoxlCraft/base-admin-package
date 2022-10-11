@@ -1,5 +1,5 @@
 import { ElMessage } from '_c/Message'
-import defineVue from '@/main'
+
 // interface DefalutParams {
 //   pageNum: number // 页码
 //   pageSize: number // 页数
@@ -20,11 +20,9 @@ interface DilogOption {
   title?: string
   width?: string
 }
-
+import { reactive, ref } from 'vue'
+import { MessageBox } from 'element-ui'
 export function useWork(option?: InitOption) {
-  const { reactive, ref } = defineVue() as any
-  const { MessageBox } = (defineVue() as IObj).elementUI
-
   const listFun: Nullable<Fn> = option?.listFun || null
 
   const delFun: Nullable<Fn> = option?.delFun || null
@@ -36,7 +34,7 @@ export function useWork(option?: InitOption) {
   })
 
   // 多选数据
-  const selectionData = ref([])
+  const selectionData = ref<IObj[]>([])
 
   // 单选数据
   const currentRow = ref()
@@ -63,7 +61,7 @@ export function useWork(option?: InitOption) {
   const dialogWidth = ref('')
 
   // 传送的数据
-  const rowData = ref(null)
+  const rowData = ref<any>(null)
 
   // 需要传给后端的其他参数
   const otherParams = ref({})

@@ -49,8 +49,8 @@ export default {
 
 <script setup lang="ts">
 import { useForm } from '_h/web/useForm'
-import defineVue from '@/main'
-const { unref, getCurrentInstance, ref, onBeforeUnmount } = defineVue() as any
+
+import { unref, getCurrentInstance, ref, onBeforeUnmount } from 'vue'
 const { register, formRef, formData, setValue } = useForm()
 const root = (getCurrentInstance() as any).proxy
 
@@ -83,7 +83,7 @@ function setFlod(val: boolean) {
 }
 
 function submitForm() {
-  unref(formRef).validate((valid: boolean) => {
+  ;(unref(formRef) as any).validate((valid: boolean) => {
     if (valid) {
       root.$emit('search-submit', formData.value)
     } else {
@@ -94,7 +94,7 @@ function submitForm() {
 }
 
 function resetForm() {
-  unref(formRef).resetFields()
+  ;(unref(formRef) as any).resetFields()
   root.$emit('reset-submit', formData.value)
 }
 

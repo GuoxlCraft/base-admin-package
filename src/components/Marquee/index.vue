@@ -23,16 +23,8 @@ export default {
 <script setup lang="ts">
 import { requestAnimationFrame, cancelAnimationFrame } from '_u/animation'
 import { DirectionType } from './types'
-import defineVue from '@/main'
-const {
-  watch,
-  ref,
-  computed,
-  nextTick,
-  onMounted,
-  onUnmounted,
-  getCurrentInstance
-} = defineVue() as any
+
+import { watch, ref, computed, nextTick, onMounted, onUnmounted, getCurrentInstance } from 'vue'
 const root = (getCurrentInstance() as any).proxy
 
 const props = defineProps({
@@ -77,7 +69,7 @@ const props = defineProps({
 })
 
 const timerId = ref(null)
-const resumeId = ref(null)
+const resumeId = ref<any>(null)
 const copyHtml = ref('')
 const contentWidth = ref(0)
 const contentHeight = ref(0)

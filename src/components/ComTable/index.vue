@@ -96,8 +96,7 @@ export default {
 <script setup lang="ts">
 import TableColumn from './components/TableColumn.vue'
 import { deepClone } from '_u/common'
-import defineVue from '@/main'
-const { computed, getCurrentInstance, useSlots, provide } = defineVue() as any
+import { computed, getCurrentInstance, useSlots, provide } from 'vue'
 const props = defineProps({
   // 表头
   columns: {

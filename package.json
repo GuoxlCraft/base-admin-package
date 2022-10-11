@@ -1,6 +1,6 @@
 {
   "name": "base-admin",
-  "version": "1.1.0",
+  "version": "1.1.7",
   "description": "起源项目的基础依赖包",
   "main": "dist/main.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "clean": "npx rimraf node_modules",
     "check": "npx npm-check-updates",
     "ts:check": "vue-tsc --noEmit",
-    "clean:cache": "npx rimraf node_modules/.cache"
+    "clean:cache": "npx rimraf node_modules/.cache",
+    "doc:dev": "cd docs && npm run dev"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.0",
@@ -73,6 +74,7 @@
     "css-loader": "^6.5.0",
     "css-minimizer-webpack-plugin": "^3.1.1",
     "custom-event-polyfill": "^1.0.7",
+    "element-ui": "^2.15.10",
     "eslint": "^7.32.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-prettier": "^4.0.0",

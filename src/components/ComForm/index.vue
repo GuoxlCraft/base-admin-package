@@ -343,10 +343,18 @@ import TreeSelect from 'vue2-tree-select'
 import 'vue2-tree-select/dist/css/index.css'
 import { deepClone } from '@/utils/common'
 import { set as objectSet } from 'lodash-es'
-import defineVue from '@/main'
-const { computed, useAttrs, ref, unref, watch, set, getCurrentInstance, nextTick, useSlots } =
-  defineVue() as any
-const { Col, Row } = (defineVue() as IObj).elementUI
+import {
+  computed,
+  useAttrs,
+  ref,
+  unref,
+  watch,
+  set,
+  getCurrentInstance,
+  nextTick,
+  useSlots
+} from 'vue'
+import { Col, Row } from 'element-ui'
 const root = (getCurrentInstance() as any).proxy
 
 const attrs = useAttrs()

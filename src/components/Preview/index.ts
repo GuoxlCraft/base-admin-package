@@ -1,12 +1,9 @@
-import defineVue from '@/main'
 import Preview from './main.vue'
 import { PreviewTypes } from './types'
 
 let instance: any
-
+import Vue from 'vue'
 const PreviewPic = function (options: PreviewTypes) {
-  // 这里的Vue实例要改从项目库中传过来
-  const Vue = (defineVue() as IObj).Vue
   const PreviewConstructor = Vue.extend(Preview as any)
   if (Vue.prototype.$isServer) return
   options = options || {}

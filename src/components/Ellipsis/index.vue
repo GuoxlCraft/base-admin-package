@@ -28,9 +28,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import defineVue from '@/main'
+
 import { IEVersion } from '_u/common'
-const {
+import {
   ref,
   watch,
   computed,
@@ -38,7 +38,7 @@ const {
   onMounted,
   onActivated,
   getCurrentInstance
-} = defineVue() as any
+} from 'vue'
 const root = (getCurrentInstance() as any).proxy
 
 const props = defineProps({

@@ -24,7 +24,7 @@ module.exports = {
         {
           title: '如何使用',
           collapsable: false,
-          children: ['/guide/import', '/guide/inject', '/guide/component', '/guide/hooks']
+          children: ['/guide/import', '/guide/inject']
         },
         {
           title: '如何扩展',

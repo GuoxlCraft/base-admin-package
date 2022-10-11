@@ -1,16 +1,3 @@
-let vue: IObj = {}
-
-function defineVue(compositionApi?: any, ElementUI?: any, Vue?: any) {
-  return (function () {
-    if (compositionApi) {
-      vue = compositionApi
-      vue.elementUI = ElementUI
-      vue.Vue = Vue
-    } else {
-      return vue
-    }
-  })()
-}
 // components组件
 import SvgIcon from '_c/SvgIcon/index.vue' // svg组件
 import ComTable from '_c/ComTable/index.vue' // ComTable组件
@@ -29,11 +16,14 @@ import showMore from '_l/showMore/index.vue'
 
 // 全局指令
 import importDirective from '@/directive'
+import { directive } from '@/directive'
+
 // 全局hooks
 import $hooks from '@/hooks'
+
 // 全局方法
 import { $animation, $domUtils, $formRules, $utils, $validate } from '@/utils/index'
-export default defineVue
+
 export {
   SvgIcon,
   ComTable,
@@ -53,5 +43,6 @@ export {
   $domUtils,
   $formRules,
   $utils,
-  $validate
+  $validate,
+  directive
 }
